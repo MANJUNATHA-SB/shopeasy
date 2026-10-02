@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext.jsx';
 import QuantityControl from '../components/QuantityControl.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
+import './CartPage.css';
 
 export default function CartPage() {
   const { cart, updateItem, removeItem } = useCart();

@@ -3,6 +3,8 @@ import MainLayout from './layouts/MainLayout.jsx';
 import ProtectedRoute from './routes/ProtectedRoute.jsx';
 import AdminRoute from './routes/AdminRoute.jsx';
 
+import CustomerRoute from './routes/CustomerRoute.jsx';
+
 import HomePage from './pages/HomePage.jsx';
 import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import CartPage from './pages/CartPage.jsx';
@@ -23,10 +25,13 @@ export default function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
-        <Route element={<ProtectedRoute />}>
+        <Route element={<CustomerRoute />}>
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/orders" element={<OrderHistoryPage />} />
+        </Route>
+
+        <Route element={<ProtectedRoute />}>
           <Route path="/orders/:id" element={<OrderDetailPage />} />
         </Route>
 

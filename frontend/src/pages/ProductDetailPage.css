@@ -1,0 +1,12 @@
+/* ---------- Product Detail ---------- */
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 640px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+}

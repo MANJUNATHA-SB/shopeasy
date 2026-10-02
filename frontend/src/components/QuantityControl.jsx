@@ -1,3 +1,5 @@
+import './QuantityControl.css';
+
 export default function QuantityControl({ quantity, onChange, max }) {
   function decrease() {
     if (quantity > 1) onChange(quantity - 1);

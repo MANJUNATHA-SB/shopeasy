@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './ProductCard.css';
 
 export default function ProductCard({ product }) {
   const outOfStock = product.stockQuantity === 0;

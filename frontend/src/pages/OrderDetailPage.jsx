@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { orderService } from '../services/orderService.js';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
+import './CartPage.css';
 
 export default function OrderDetailPage() {
   const { id } = useParams();

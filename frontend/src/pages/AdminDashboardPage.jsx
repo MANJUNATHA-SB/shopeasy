@@ -5,6 +5,7 @@ import { orderService } from '../services/orderService.js';
 import api from '../services/api.js';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
+import './AdminDashboardPage.css';
 
 const EMPTY_PRODUCT_FORM = {
   id: null,

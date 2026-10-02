@@ -6,11 +6,12 @@ import { useAuth } from '../context/AuthContext.jsx';
 import QuantityControl from '../components/QuantityControl.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
+import './ProductDetailPage.css';
 
 export default function ProductDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isAdmin } = useAuth();
   const { addItem } = useCart();
 
   const [product, setProduct] = useState(null);
@@ -35,6 +36,9 @@ export default function ProductDetailPage() {
   async function handleAddToCart() {
     if (!isAuthenticated) {
       navigate('/login', { state: { from: { pathname: `/products/${id}` } } });
+      return;
+    }
+    if (isAdmin) {
       return;
     }
     setAdding(true);
@@ -75,13 +79,19 @@ export default function ProductDetailPage() {
         <ErrorMessage error={addError} />
         {added && <div className="alert alert-info">Added to cart.</div>}
 
-        {!outOfStock && (
+        {!outOfStock && !isAdmin && (
           <div style={{ display: 'flex', gap: 14, alignItems: 'center', marginTop: 12 }}>
             <QuantityControl quantity={quantity} onChange={setQuantity} max={product.stockQuantity} />
             <button type="button" className="btn btn-primary" disabled={adding} onClick={handleAddToCart}>
               {adding ? 'Adding...' : 'Add to Cart'}
             </button>
           </div>
+        )}
+
+        {!outOfStock && isAdmin && (
+          <p style={{ marginTop: 16, color: 'var(--color-muted)', fontStyle: 'italic' }}>
+            Shopping & cart actions are disabled for Admin accounts.
+          </p>
         )}
       </div>
     </div>

@@ -3,6 +3,7 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import { orderService } from '../services/orderService.js';
 import { useCart } from '../context/CartContext.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
+import './CartPage.css';
 
 export default function CheckoutPage() {
   const { cart, refreshCart } = useCart();

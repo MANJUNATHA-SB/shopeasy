@@ -5,6 +5,7 @@ import { categoryService } from '../services/categoryService.js';
 import ProductCard from '../components/ProductCard.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
+import './HomePage.css';
 
 export default function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
